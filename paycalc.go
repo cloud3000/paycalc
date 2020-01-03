@@ -1,9 +1,16 @@
 package paycalc
 
-import "fmt"
+import (
+	"fmt"
 
-func CalcPay(amt float64) (float64, Error) {
-	err2 := fmt.Errorf("math: square root of negative number %v", amt)
-	return amt, err2
+	"github.com/sirupsen/logrus"
+)
+
+// CalcPay returns net pay based on grossPay
+func CalcPay(grossPay float64) (float64, error) {
+	err := fmt.Errorf("Gross Pay is %v", grossPay)
+	logrus.Fatal(err)
+	netPay := grossPay
+	return netPay, err
 
 }
